@@ -64,6 +64,41 @@ echo         angular.mock.inject($componentController => { }),>> %1.spec.js
 echo     );>> %1.spec.js
 echo });>> %1.spec.js
 
+echo export default class %1Service {>> %1.service.js
+echo 	constructor($http) {>> %1.service.js
+echo         this.$http = $http;>> %1.service.js
+echo 	}>> %1.service.js
+echo.>> %1.service.js
+echo     servicePut(payload) {>> %1.service.js
+echo         const config = {>> %1.service.js
+echo             headers: {>> %1.service.js
+echo                 'Content-Type': 'application/json',>> %1.service.js
+echo                 'Accept': 'application/json'>> %1.service.js
+echo             }>> %1.service.js
+echo         };>> %1.service.js
+echo.>> %1.service.js
+echo         return this.$http.put('endpoint/put', payload, config).then(() => {>> %1.service.js
+echo             return Promise.resolve();>> %1.service.js
+echo         }).catch(() => {>> %1.service.js
+echo             return Promise.reject('Failed to save.');>> %1.service.js
+echo         });>> %1.service.js
+echo     }>> %1.service.js
+echo.>> %1.service.js
+echo     serviceGet() {>> %1.service.js
+echo         const config = {>> %1.service.js
+echo             headers: { 'Accept': 'application/json' }>> %1.service.js
+echo         };>> %1.service.js
+echo.>> %1.service.js
+echo         return this.$http.get('endpoint/get', config).then(result => {>> %1.service.js
+echo             return result.data;>> %1.service.js
+echo         }).catch(() => {>> %1.service.js
+echo             return Promise.reject('Failed to retreive.');>> %1.service.js
+echo         });>> %1.service.js
+echo     }>> %1.service.js
+echo }>> %1.service.js
+echo.>> %1.service.js
+echo %1Service.$inject = ['$http'];>> %1.service.js
+
 echo ^<section class="%1-section"^>>> %1.html
 echo.>> %1.html
 echo ^</section^>>> %1.html
