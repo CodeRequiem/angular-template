@@ -18,7 +18,8 @@
     "jest": "^20.0.4",
     "less-loader": "4.0.5",
     "style-loader": "^0.18.2",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.9.3"
   },
   "scripts": {
     "start": "webpack-dev-server --open"
